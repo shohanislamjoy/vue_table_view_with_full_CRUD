@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-md">
+    <div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-md m-12">
       <h1 class="text-2xl font-semibold text-center mb-6">Add WiFi Data</h1>
       <form @submit.prevent="addWifiData" class="space-y-4">
         <div class="flex flex-col">

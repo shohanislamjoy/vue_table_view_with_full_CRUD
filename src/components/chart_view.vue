@@ -148,8 +148,8 @@ h1 {
 </style>
 
 <template>
-  <div>
-    <h1> charts on the data</h1>
+  <div class="text-center text-4xl m-6">
+    <h1 class="font-bold"> charts on the data</h1>
     <div class="chart-container">
       <!-- Line Chart -->
       <div id="line_chart_div" style="width: 100%; height: 500px;"></div>

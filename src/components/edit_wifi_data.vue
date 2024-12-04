@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-md">
+    <div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-md m-12">
       <h1 class="text-2xl font-semibold text-center mb-6">Edit WiFi Data</h1>
       <form @submit.prevent="updateWifiData" class="space-y-4">
         <div class="flex flex-col">
@@ -47,7 +47,7 @@
   <script setup>
   import { ref, onMounted } from "vue";
   import { useRoute, useRouter } from "vue-router";
-  import api from '../axios.js';
+  import api from '@/axios.js';
   
   const route = useRoute();
   const router = useRouter();
@@ -77,7 +77,7 @@
     try {
       const response = await api.put(`/wifi_data/${wifiData.value.id}`, wifiData.value);
       alert('WiFi Data updated successfully!');
-      router.push('/somewhere'); // Redirect after update
+      router.push('/'); // Redirect after update
     } catch (error) {
       console.error('Error updating WiFi data:', error);
       alert('Failed to update WiFi data');

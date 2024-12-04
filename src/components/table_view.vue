@@ -3,12 +3,6 @@ import api from '../axios.js';
 import { ref, onMounted,computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-// import { defineProps } from 'vue';
-
-
-// const props = defineProps(['foo','name']);
-
-
 
 const router = useRouter();
 
@@ -92,8 +86,20 @@ const add_wifi = () => {
 
 
 <template>
+  <div class="text-center mt-16">
 
-  <div class="text-center"> <button @click="add_wifi"> ADD WIFI DATA</button></div>
+    
+    <button @click="add_wifi" class="relative px-5 py-2 font-medium text-white group">
+      <span class="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-purple-500 group-hover:bg-purple-700 group-hover:skew-x-12"></span>
+      <span class="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-purple-700 group-hover:bg-purple-500 group-hover:-skew-x-12"></span>
+      
+      <span class="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-purple-600 -rotate-12"></span>
+      <span class="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-purple-400 -rotate-12"></span>
+      <span class="relative">ADD WIFI DATA<</span>
+    </button>
+    
+  </div>
+ 
 
   <div class="m-20 p-10">
     <table class="table-auto border-collapse border border-gray-300 w-full ">
@@ -118,16 +124,16 @@ const add_wifi = () => {
           <td class="border border-gray-300 px-4 py-2">{{ item.open }}</td>
           <td class="border border-gray-300 px-4 py-2">{{ item.close }}</td>
           <td class="border border-gray-300 px-4 py-2">{{ item.volume }}</td>
-          <td class="border border-gray-300 px-4 py-2">
+          <td class="border border-gray-300 px-4 py-2 text-center">
             <button 
-              class="px-4 py-2 bg-blue-500 text-white rounded" 
+              class="px-4 py-2 bg-blue-500 text-white rounded mr-2 w-1/3" 
               @click="goto_edit(item?.id)"
               :disabled="!item?.id"
             >
               Edit
             </button>
             <button 
-              class="px-4 py-2 bg-red-500 text-white rounded" 
+              class="px-4 py-2 bg-red-500 text-white rounded w-1/3" 
               @click="delete_column(item?.id)"
               :disabled="!item?.id"
             >
