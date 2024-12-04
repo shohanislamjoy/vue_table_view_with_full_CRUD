@@ -1,14 +1,16 @@
-<script setup>
+<script setup >
 
-import table_view from './components/table_view.vue';
+
+import home from '@/view/home.vue';
+import { RouterView } from 'vue-router';
+
 
 </script>
 
 <template>
-  <table_view/>
 
 
-  
-  <h1 class="font-bold text-center"> yooo</h1>
+<RouterView/>
+
+
 </template>
-

@@ -1,6 +1,7 @@
 <script setup>
 import api from '../axios.js';
 import { ref, onMounted,computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 // import { defineProps } from 'vue';
 
@@ -9,7 +10,7 @@ import { ref, onMounted,computed } from 'vue';
 
 
 
-
+const router = useRouter();
 
 const wifi_data = ref([]);
 const currentPage = ref(1);
@@ -49,7 +50,7 @@ const goToNextPage = () => {
 const goto_edit = (id) => {
   console.log(`Navigate to edit page for ID: ${id}`);
   // Example: Use Vue Router for navigation
-  // router.push(`/edit/${id}`);
+  router.push(`/edit/${id}`);
 };
 
 
@@ -70,6 +71,12 @@ const delete_column = async (id) => {
   }
 };
 
+const add_wifi = () => {
+  console.log('Navigate to add wifi data page');
+  // Example: Use Vue Router for navigation
+  router.push('/add');
+};
+
 
 
 
@@ -86,14 +93,7 @@ const delete_column = async (id) => {
 
 <template>
 
-<!-- 
-{{ props.foo }}
-{{ props.name }}
-{{ props.shohan }}
-{{ props.hahso }} -->
-
-
-
+  <div class="text-center"> <button @click="add_wifi"> ADD WIFI DATA</button></div>
 
   <div class="m-20 p-10">
     <table class="table-auto border-collapse border border-gray-300 w-full ">
