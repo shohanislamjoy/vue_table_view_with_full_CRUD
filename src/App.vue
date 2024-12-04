@@ -5,7 +5,7 @@ import table_view from './components/table_view.vue';
 </script>
 
 <template>
-  <table_view foo="bar" />
+  <table_view/>
 
 
   
