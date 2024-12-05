@@ -1,3 +1,53 @@
+
+
+<script setup>
+import { ref } from "vue";
+import api from '../axios.js';
+import { useRouter } from 'vue-router';
+
+
+const router = useRouter();
+
+const wifiData = ref({
+  date: '',
+  trade_code: '',
+  high: '',
+  low: '',
+  open: '',
+  close: '',
+  volume: ''
+});
+
+const addWifiData = async () => {
+  try {
+    const response = await api.post('/wifi_data', wifiData.value);
+    router.push('/');
+    alert('WiFi Data added successfully!');
+    // Reset the form or redirect after success
+  } catch (error) {
+    console.error('Error adding WiFi Data:', error);
+    alert('Failed to add WiFi Data');
+  }
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <template>
     <div class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-md m-12">
       <h1 class="text-2xl font-semibold text-center mb-6">Add WiFi Data</h1>
@@ -43,34 +93,4 @@
       </form>
     </div>
   </template>
-  
-  <script setup>
-  import { ref } from "vue";
-  import api from '../axios.js';
-  
-  const wifiData = ref({
-    date: '',
-    trade_code: '',
-    high: '',
-    low: '',
-    open: '',
-    close: '',
-    volume: ''
-  });
-  
-  const addWifiData = async () => {
-    try {
-      const response = await api.post('/wifi_data', wifiData.value);
-      alert('WiFi Data added successfully!');
-      // Reset the form or redirect after success
-    } catch (error) {
-      console.error('Error adding WiFi Data:', error);
-      alert('Failed to add WiFi Data');
-    }
-  };
-  </script>
-  
-  <style scoped>
-  /* Add your styles here */
-  </style>
   
